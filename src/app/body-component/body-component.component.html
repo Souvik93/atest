@@ -155,12 +155,12 @@
 
             </agm-map>
          </div>
-         <div class="col-md-3">
+         <div class="col-md-3"  *ngIf="loacationDeatails!=undefined">
             <label>Location:</label>
             <br>
             <label *ngIf="loacationDeatails!=undefined"> {{loacationDeatails.Location.Address.Label}} </label>
-         </div>
-         <div class="col-md-3">
+            <br>
+
             <label>Weather Status(Current Location):</label>
             <br>
             <span  *ngIf="wDetails!=undefined">
@@ -175,12 +175,38 @@
 
             </span>
 
+
+
+         </div>
+         <div class="col-md-3" *ngIf="loacationDeatails!=undefined" >
+
+           <label>
+           Speed Limit:
+           </label>
+           <br>
+           <label *ngIf="loacationDeatails!=undefined"> {{speedRange}} MPH </label>
+
+            <div class="col-md-12 no-padding-left">
+               <label>Vehicle Speed (mph):</label>
+            </div>
+            <div class="col-md-1 extra-margin">
+               <label>0</label>
+            </div>
+            <div class="col-md-8 extra-margin">
+               <input name="ram" type="range" min="0" [max]="max" [(ngModel)]="mymodel" value="0">
+            </div>
+            <div class="col-md-2 extra-margin">
+               <label>{{max}}</label>
+            </div>
+
             <!-- </span> <img src="/assets/images/clear.png" width="20" height="20"> -->
          </div>
-         <div class="col-md-3">
+         <div class="col-md-3"  *ngIf="loacationDeatails!=undefined">
+           <ng-gauge [max]="max" [input]="mymodel" [unit]="'mph'" [showDigital]="true" [light]="90" [sectors]="sectors">
+           </ng-gauge>
          </div>
       </div>
-      <div class="col-md-12">
+      <!-- <div class="col-md-12">
         <div class="col-md-3">
           <label>
           Speed Limit:
@@ -201,25 +227,17 @@
           </div>
           <div class="col-md-2 extra-margin">
              <label>{{max}}</label>
-
-
           </div>
-
         </div>
-
         <div class="col-md-3">
-
           <ng-gauge [max]="max" [input]="mymodel" [unit]="'mph'" [showDigital]="true" [light]="90" [sectors]="sectors">
           </ng-gauge>
-
-
         </div>
-
         <div class="col-md-3">
 
 
         </div>
-      </div>
+      </div> -->
 
 
 

@@ -8,11 +8,6 @@ import { MyNewServiceService } from './../my-new-service.service';
 })
 export class BodyComponentComponent implements OnInit {
 
-
-  // title: string = 'My first AGM project';
-  // lat: number = 51.678418;
-  // lng: number = 7.809007;
-
 public dob: string;
 public age:any;
 public vage:any;
@@ -53,14 +48,7 @@ public sectors = [
 //private speedMap:Map<string,string> = new Map([["SC1","80"],["SC2","65-80"],["SC3","55-64"],["SC4","41-54"],["SC5","31-40"],["SC5","31-40"],["SC6","21-30"],["SC7","6-20"],["SC8","<6"]]);
 
 private speedMap:Map<string,number> = new Map([["SC1",80],["SC2",73],["SC3",60],["SC4",48],["SC5",36],["SC6",26],["SC7",13],["SC8",3]]);
-
 private weatherConditionMap:Map<string,number> = new Map([["Clear",0],["Cloudy",1],["Fog",2],["Rain",3],["Snow",4],["Freeze",4],["Strong Wind",5]]);
-
-
-
-//lat: number = 51.678418;
-//lng: number = 7.809007;
-
   constructor(public myNewServiceService: MyNewServiceService) {
 
  }
@@ -69,13 +57,6 @@ private weatherConditionMap:Map<string,number> = new Map([["Clear",0],["Cloudy",
 
       this.myNewServiceService.getStateDetails().subscribe(result=>{
       this.stateDettails=result;
-      //console.log(this.stateDettails.get("Idaho"));
-      //this.transferData=result;
-
-//       this.stateDettails.forEach(element => {
-//     console.log((element.STATE));
-// });
-
     });
   }
   calculateVAge()
@@ -142,22 +123,22 @@ fetchDetails(a,b)
     console.log(data.Response.View[0].Result[0]);
     this.loacationDeatails=data.Response.View[0].Result[0];
     this.speedRange=this.speedMap.get(this.loacationDeatails.Location.LinkInfo.SpeedCategory);
-
-    //console.log(this.loacationDeatails);
   });
 }
 
 public getPrediction()
 {
-
   this.jsonBody.GENDER=this.sex;
   this.jsonBody.AGE=this.age;
   this.jsonBody.PASSTYPE=1; //Predefined
 
   if(this.wDetails!=undefined)
-  this.jsonBody.WEATHER=this.weatherConditionMap.get(this.wDetails.weather[0].main);
+  {
+    console.log(this.wDetails.weather[0].main);
+    this.jsonBody.WEATHER=this.weatherConditionMap.get(this.wDetails.weather[0].main);
+  }
   else
-  this.jsonBody.WEATHER=1
+  this.jsonBody.WEATHER=2;
   this.jsonBody.VEHAGE=this.vechage;
 
   this.jsonBody.VEHTYPE=Number(this.vehicleType);
@@ -170,26 +151,17 @@ public getPrediction()
 
   this.jsonBody.REQUID=102541; // Any Random Number
 
+  this.jsonBody.SPEEDLIM=this.speedRange;
+
   this.stateDettails.forEach(element => {
-    //  console.log((element.STATE));
+      if(this.loacationDeatails.Location.Address.City==element.STATE)
+      this.jsonBody.state=element.ID;
+    });
+  console.log(this.jsonBody);
+  this.predictionResult=this.myNewServiceService.getPrediction(this.jsonBody);
+  }
 
-      if(this.loacationDeatails.Location.Address.State==element.state)
-      this.jsonBody.state=element.state;
-
-
-
- });
- console.log(this.jsonBody);
-
-this.predictionResult=this.myNewServiceService.getPrediction(this.jsonBody);
-
-
-
-  //alert("Done.. Check Your Prediction Now Below");
-}
-
-zoom: number = 8;
-
+  zoom: number = 8;
   // initial center position for the map
   lat: number = 18.36245;
   lng: number = -66.56128;
@@ -209,7 +181,6 @@ zoom: number = 8;
 
   markerDragEnd(m: marker, $event: MouseEvent) {
     console.log("Drag End Called");
-    console.log(m);
     this.fetchDetails(m.lat,m.lng);
   }
 
@@ -221,9 +192,6 @@ zoom: number = 8;
 		  draggable: true
 	  }
   ]
-
-
-
 }
 
 interface marker {

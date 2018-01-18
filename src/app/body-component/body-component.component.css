@@ -1,3 +1,9 @@
+.no-padding-left
+{
+  padding-left: 0px;
+}
+
+
 /* CSS For Radio Button Design */
 label.btn span {
   font-size: 16px ;
