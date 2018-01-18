@@ -9,6 +9,7 @@ import { FooterComponentComponent } from './footer-component/footer-component.co
 import { BodyComponentComponent } from './body-component/body-component.component';
 import { MyNewServiceService } from './my-new-service.service';
 import { GaugeModule } from 'ng2-gauge';
+import { AgmCoreModule } from '@agm/core';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,10 @@ import { GaugeModule } from 'ng2-gauge';
     BrowserModule,
     FormsModule,
     HttpModule,
-    GaugeModule
+    GaugeModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDZ5rIF_as0p3eJW08nKkQE2c0EFdmpG1w'
+    })
    //  AgmCoreModule.forRoot({
    //   apiKey: 'AIzaSyCaAUvKje41x1vN_mQN6dFzO1zB2kiTskI'
    // })

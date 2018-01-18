@@ -100,24 +100,60 @@
          <div class="col-md-12 div-border">
             <h4> Driving Conditions </h4>
          </div>
-         <div class="col-md-12">
+         <div class="col-md-3">
             <!-- <agm-map [latitude]="lat" [longitude]="lng">
                <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
                </agm-map> -->
-            <button class="btn btn-info" (click)="getGeoLocation()">Get Your Location</button>
-            <div id="mapholder"></div>
-         </div>
-         <!-- <div class="col-md-9">
+               <!-- <agm-map [latitude]="lat" [longitude]="lng">
+  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map> -->
 
-             <div style="width: 640px; height: 480px" id="mapContainer"></div>
-         </div> -->
+            <button class="btn btn-info" (click)="getGeoLocation()">Get Your Location</button>
+
+         </div>
+         <div class="col-md-9">
+
+
+
+             <!-- <div style="width: 640px; height: 480px" id="mapContainer"></div> -->
+         </div>
       </div>
       <div class="col-md-12">
          <div class="col-md-3">
             <label>
             Your Location:
             </label>
-            <img src="/assets/images/map.png" class="img-responsive">
+            <agm-map
+              [latitude]="lat"
+              [longitude]="lng"
+              [zoom]="zoom"
+              [disableDefaultUI]="false"
+              [zoomControl]="false"
+              (mapClick)="mapClicked($event)">
+
+              <agm-marker
+                  *ngFor="let m of markers; let i = index"
+                  (markerClick)="clickedMarker(m.label, i)"
+                  [latitude]="m.lat"
+                  [longitude]="m.lng"
+                  [label]="m.label"
+                  [markerDraggable]="m.draggable"
+                  (dragEnd)="markerDragEnd(m, $event)">
+
+                <agm-info-window>
+                  <strong>InfoWindow content</strong>
+                </agm-info-window>
+
+              </agm-marker>
+
+              <agm-circle [latitude]="lat + 0.3" [longitude]="lng"
+                  [radius]="5000"
+                  [fillColor]="'red'"
+                  [circleDraggable]="true"
+                  [editable]="true">
+              </agm-circle>
+
+            </agm-map>
          </div>
          <div class="col-md-3">
             <label>Location:</label>
@@ -196,6 +232,8 @@
          </div>
          <div class="col-md-12">
             <label> Safe </label>
+
+            <label *ngIf="predictionResult!=undefined">  {{predictionResult.INCPROB}}</label>
          </div>
       </div>
    </div>

@@ -37,4 +37,15 @@ public getWeatherDetails(lat,lon)
      .map(res => res.json());
  }
 
+ public getPrediction(bodyjson){
+   return this.http
+     .post('http://10.211.103.167:5100/predict/safari_api', bodyjson)
+       .map(data => {
+             var result=data;
+             console.log(result);
+       }, error => {
+           console.log(error.json());
+       });
+}
+
 }

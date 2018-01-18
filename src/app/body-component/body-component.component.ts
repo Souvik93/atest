@@ -8,14 +8,20 @@ import { MyNewServiceService } from './../my-new-service.service';
 })
 export class BodyComponentComponent implements OnInit {
 
+
+  // title: string = 'My first AGM project';
+  // lat: number = 51.678418;
+  // lng: number = 7.809007;
+
 public dob: string;
 public age:any;
 public vage:any;
 public vechage:string;
 public vehicleType:number;
+public predictionResult:any;
 
-public lat:number;
-public lng:number;
+public lat1:number;
+public lng1:number;
 public location:any;
 
 public wDetails:any;
@@ -151,7 +157,7 @@ public getPrediction()
   if(this.wDetails!=undefined)
   this.jsonBody.WEATHER=this.weatherConditionMap.get(this.wDetails.weather[0].main);
   else
-  this.jsonBody.WEATHER=1;
+  this.jsonBody.WEATHER=1
   this.jsonBody.VEHAGE=this.vechage;
 
   this.jsonBody.VEHTYPE=Number(this.vehicleType);
@@ -169,11 +175,60 @@ public getPrediction()
 
       if(this.loacationDeatails.Location.Address.State==element.state)
       this.jsonBody.state=element.state;
+
+
+
  });
  console.log(this.jsonBody);
+
+this.predictionResult=this.myNewServiceService.getPrediction(this.jsonBody);
+
+
+
   //alert("Done.. Check Your Prediction Now Below");
 }
 
+zoom: number = 8;
+
+  // initial center position for the map
+  lat: number = 18.36245;
+  lng: number = -66.56128;
+
+  clickedMarker(label: string, index: number) {
+    console.log(`clicked the marker: ${label || index}`)
+    this.fetchDetails(this.lat,this.lng);
+  }
+
+  mapClicked($event: any) {
+    this.markers.push({
+      lat: $event.coords.lat,
+      lng: $event.coords.lng,
+      draggable: true
+    });
+  }
+
+  markerDragEnd(m: marker, $event: MouseEvent) {
+    console.log("Drag End Called");
+    console.log(m);
+    this.fetchDetails(m.lat,m.lng);
+  }
+
+  markers: marker[] = [
+	  {
+		  lat: 18.36245,
+		  lng: -66.56128,
+		  label: 'A',
+		  draggable: true
+	  }
+  ]
 
 
+
+}
+
+interface marker {
+	lat: number;
+	lng: number;
+	label?: string;
+	draggable: boolean;
 }

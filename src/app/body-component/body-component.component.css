@@ -127,6 +127,10 @@ box-shadow: none;
   margin-bottom: 5px;
   margin-top: 5px;
 }
+
+agm-map {
+  height: 300px;
+}
 /* Range Input CSS */
 
 input[type=range] {
