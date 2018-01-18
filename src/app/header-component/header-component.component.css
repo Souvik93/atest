@@ -1,0 +1,206 @@
+.navbar-default>.main-cont{
+     padding-left:0px;
+}
+.main-header{
+    min-height: 60px;
+    background-color: #00264A;
+    color:white;
+    padding-left:30px;
+    border-radius: 0px;
+    border: none;
+
+}
+.navbar-nospacing {
+    margin-bottom: 0;
+}
+.navbar-default .navbar-brand {
+    color: white;
+}
+.navbar-header{
+    margin-top:-7px;
+}
+.navbar-brand{
+    height:auto;
+}
+.cg-logo{
+    margin-left:-20px;
+}
+.cglogoleaf-image{
+    padding-left:0px;
+    height: 40px;
+    width:45px;
+}
+.main-heading{
+    padding-left: 14px;
+    padding-right:25px;
+    display:inline;
+    font-size:26px;
+    color:white;
+    font-family: helveticaNeueBold;
+    font-weight: bold;
+}
+.main-heading:hover {
+    color:white;
+}
+.headerAnchor-right{
+    color:white;
+    font-size:16px;
+    font-family:helveticaNeueRegular;
+    padding-top: 17px;
+}
+.header-login {
+    margin-left: 8px;
+    padding-left:0px;
+    margin-right: 0px;
+}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{
+    color: #FFFFFF;
+    background-color: #00264A;
+}
+.navbar-default .navbar-nav>li>a {
+    color: #FFFFFF;
+}
+span.hidden-sm{
+    color: #FFFFFF;
+}
+.landingSubheader{
+     padding-left:0px;
+     margin-left: -30px;
+     margin-right: -15px;
+}
+.landingSubheader>.navbar-header{
+    border-top:none;
+}
+
+.navbar-default.navbar-header{
+    margin-top:2px;
+}
+.smartQASubheader{
+    border-top: 1px #61759B solid;
+    height:31px;
+    background-color:#2E4165 !important;
+}
+.navigation-panel-heading-brand{
+    margin-top:12px;
+    color:#FFCA37;
+    font-family:"helveticaNeueBold";
+    font-size:14px;
+    padding-right: 78px;
+    padding-left: 30px;
+}
+.dropdownone {
+    background-color: #2E4165;
+    color: #ACDFFF;
+    width:140px;
+    height:30px;
+    font-size: 14px;
+    border: 1px #FFFFFF solid;
+    cursor: pointer;
+    font-family: "helveticaNeueBold";
+    display: inline-block;
+    padding-left:10px;
+    padding-top:3px;
+    border-left: 1px #61759B solid;
+    border-right: 1px #61759B solid;
+    border-top:none;
+}
+.drop-name{
+    border-left: 1px #61759B solid;
+    border-right: 1px #61759B solid;
+    border-top:none;
+    border-bottom: none;
+}
+.drop-name>span.caret{
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    width:140px;
+    height:28px !important;
+    z-index: 1;
+    margin-left: -11px;
+    margin-top: 7px;
+}
+.dropdown-content a {
+    background-color: rgb(0,172,212);
+    color: white;
+    text-align: left;
+    text-decoration: none;
+    display: block;
+    height:28px;
+    width:140px;
+    padding-top:5px;
+    padding-left: 10px;
+}
+.dropdown-content a:hover {
+    background-color: #FFCA37;
+    color: #000000;
+    font-family: "helveticaNeueBold";
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.dropdown:hover {
+    color: #FFCA37;
+}
+.nav .navbar-nav{
+    position: fixed;
+}
+.drop-design{
+    border-left:none;
+    border-right: 1px #61759B solid;
+    border-top:none;
+    border-bottom: none;
+}
+
+/* CSS For XS View */
+
+
+img.cglogoleaf-image-xs{
+   padding-left: 0px;
+height: 40px;
+width: 45px;
+margin-top: 10px;
+margin-left:10px;
+}
+
+
+.mainheader-xs
+{
+      background-color: #00264A;
+
+}
+
+.header-title-xs
+{
+  color:white;
+  font-family:"helveticaNeueBold";
+  margin-top: 10px;
+}
+
+.navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover
+{
+  background-color: #00264A;
+}
+
+.toggle-xs
+{
+  margin-top: 25px;
+
+}
+
+.smartqasubheader-xs, .smartqasubheader-xs a{
+
+    background-color:#2E4165 !important;
+    color: #ACDFFF !important;
+    font-family: "helveticaNeueBold";
+
+}
+.smartqasubheader-xs a:hover, .smartqasubheader-xs a:focus
+{
+    color: #FFCA37 !important;
+}
+/* CSS For XS View Ends Here */

@@ -1,0 +1,202 @@
+<div class="container-fluid">
+   <div class="row">
+      <div class="col-md-12">
+         <h4> The one liner about the prediction system goes here </h4>
+         <!-- <p>
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            </p> -->
+         <img src="/assets/images/bg.jpg" class="img-bg" >
+      </div>
+      <div class="col-md-12">
+         <div class="col-md-12 div-border">
+            <h4> Driver Details </h4>
+         </div>
+         <form>
+            <div class="row">
+               <div class="col-md-3">
+                  <div class="form-group">
+                     <label for="sex">Choose Your Gender:</label>
+                     <br>
+                     <input type="radio" [value]="1" name="gender" [(ngModel)]="sex" > Male
+                     <input type="radio" [value]="0" name="gender" [(ngModel)]="sex" > Female
+
+                     <!-- <div class="btn-group btn-group" data-toggle="buttons" id="sex">
+                        <label class="btn active" style="outline: none;">
+                        <input type="radio" [(ngModel)]="sex" (change)="onRadioChange()" [value]="1" name='gender1'><i class="fa fa-circle-o"></i><i class="fa fa-dot-circle-o"></i> <span>  Male</span>
+                        </label>
+                        <label class="btn" style="outline: none;">
+                        <input type="radio" [(ngModel)]="sex" [value]="0" (ngModelChange)="onRadioChange()" name='gender1'><i class="fa fa-circle-o"></i><i class="fa fa-dot-circle-o"></i><span> Female</span>
+                        </label>
+                        <label>{{sex}}</label>
+                     </div> -->
+                  </div>
+               </div>
+               <div class="col-md-3">
+                  <div class="form-group">
+                     <label for="dob">Enter Your Age:</label>
+                     <input type="number" class="form-control form-control-custom" id="dob" [(ngModel)]="age" name="dobName">
+                  </div>
+               </div>
+               <div class="col-md-3">
+
+               </div>
+               <div class="col-md-3">
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-12 ">
+                  <div class="col-md-12 div-border">
+                     <h4> Vehicle Details </h4>
+                  </div>
+               </div>
+               <div class="col-md-3">
+                  <label for="vtype">Choose Your Vehicle Type:</label>
+                  <br>
+                  <select [(ngModel)]="vehicleType" name="vehicle">
+                  <option [value]="0">2D Sedan</option>
+                  <option [value]="1">4D Sedan</option>
+                  <option [value]="2">C pickup</option>
+                  <option [value]="3">C SUV</option>
+                  <option [value]="4">L Pickup</option>
+                  <option [value]="5">MC</option>
+                  <option [value]="6">Minivan</option>
+                </select>
+
+                  <!-- <select [(ngModel)]="selectedValue">
+                  <option [ngValue]="0">2D Sedan</option>
+                  <option [ngValue]="1">4D Sedan</option>
+                  <option [ngValue]="2">C pickup</option>
+                  <option [ngValue]="3">C SUV</option>
+                  <option [ngValue]="4">L Pickup</option>
+                  <option [ngValue]="5">MC</option>
+                  <option [ngValue]="6">Minivan</option>
+                </select> -->
+                  <!-- <div class="dropdown" id="vtype">
+                     <button class="btn btn-primary dropdown-toggle extra-margin" type="button" data-toggle="dropdown">Vechile Type
+                     <span class="caret"></span></button>
+                     <ul class="dropdown-menu">
+                        <li><a href="#">2D Sedan</a></li>
+                        <li><a href="#">4D Sedan</a></li>
+                        <li><a href="#">C pickup</a></li>
+                        <li><a href="#">C SUV</a></li>
+                        <li><a href="#">L Pickup</a></li>
+                        <li><a href="#">MC</a></li>
+                        <li><a href="#">Minivan</a></li>
+                     </ul>
+                  </div> -->
+               </div>
+               <div class="col-md-3">
+                  <label for="vechage">Provide Your Vehicle Age:</label>
+                  <!-- <input type="date" class="form-control form-control-custom" id="vechage" [(ngModel)]="vechage" name="dobName" (ngModelChange)="calculateVAge($event)"> -->
+                  <input type="number" [(ngModel)]="vechage" name="vage" id="vechage" class="form-control form-control-custom ">
+               </div>
+               <div class="col-md-6">
+
+               </div>
+            </div>
+         </form>
+      </div>
+      <div class="col-md-12">
+         <div class="col-md-12 div-border">
+            <h4> Driving Conditions </h4>
+         </div>
+         <div class="col-md-12">
+            <!-- <agm-map [latitude]="lat" [longitude]="lng">
+               <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+               </agm-map> -->
+            <button class="btn btn-info" (click)="getGeoLocation()">Get Your Location</button>
+            <div id="mapholder"></div>
+         </div>
+         <!-- <div class="col-md-9">
+
+             <div style="width: 640px; height: 480px" id="mapContainer"></div>
+         </div> -->
+      </div>
+      <div class="col-md-12">
+         <div class="col-md-3">
+            <label>
+            Your Location:
+            </label>
+            <img src="/assets/images/map.png" class="img-responsive">
+         </div>
+         <div class="col-md-3">
+            <label>Location:</label>
+            <br>
+            <label *ngIf="loacationDeatails!=undefined"> {{loacationDeatails.Location.Address.Label}} </label>
+         </div>
+         <div class="col-md-3">
+            <label>Weather Status(Current Location):</label>
+            <br>
+            <span  *ngIf="wDetails!=undefined">
+
+              <span> City Name- {{wDetails.name}}</span>
+
+              <!-- <span> City Name- {{wDetails.location.name}}</span> -->
+
+              <span>Condition - {{wDetails.weather[0].main}}</span>
+
+              <!-- <span>Condition - {{wDetails.current.condition.text}}</span> -->
+
+            </span>
+
+            <!-- </span> <img src="/assets/images/clear.png" width="20" height="20"> -->
+         </div>
+         <div class="col-md-3">
+         </div>
+      </div>
+      <div class="col-md-12">
+        <div class="col-md-3">
+          <label>
+          Speed Limit:
+          </label>
+          <br>
+          <label *ngIf="loacationDeatails!=undefined"> {{speedRange}} MPH </label>
+        </div>
+        <div class="col-md-3">
+
+          <div class="col-md-12 ">
+             <label>Vehicle Speed (mph):</label>
+          </div>
+          <div class="col-md-1 extra-margin">
+             <label>0</label>
+          </div>
+          <div class="col-md-8 extra-margin">
+             <input name="ram" type="range" min="0" [max]="max" [(ngModel)]="mymodel" value="0">
+          </div>
+          <div class="col-md-2 extra-margin">
+             <label>{{max}}</label>
+
+
+          </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+          <ng-gauge [max]="max" [input]="mymodel" [unit]="'mph'" [showDigital]="true" [light]="90" [sectors]="sectors">
+          </ng-gauge>
+
+
+        </div>
+
+        <div class="col-md-3">
+
+
+        </div>
+      </div>
+
+
+
+      <div class="col-md-12">
+         <button class="btn btn-info pull-right" (click)="getPrediction()">Get Your Prediction</button>
+      </div>
+      <div class="col-md-12">
+         <div class="col-md-12 div-border">
+            <h4> Risk Outcome </h4>
+         </div>
+         <div class="col-md-12">
+            <label> Safe </label>
+         </div>
+      </div>
+   </div>
+</div>

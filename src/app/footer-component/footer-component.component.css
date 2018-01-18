@@ -1,0 +1,112 @@
+.footer{
+    width:100%;
+    min-width:100%;
+    max-width:100%;
+    height:60px;   /* Height of the footer */
+    background:#00264A;
+    position:relative;
+	bottom:0;
+	left:0;
+}
+.footer-padding{
+    padding-left:0;
+    padding-right: 0;
+}
+.footerLogo{
+    padding-right: 5px;
+    margin-top: 20px;
+}
+.col30percent {
+    border-left: 1px solid #C9C2D8;
+    border-right: 1px solid #C9C2D8;
+    margin-top: 10px;
+    height: 41px;
+    font-size: 14px;
+    font-family:"helveticaNeueRegular";
+    color:#C9C2D8;
+    width:auto !important;
+    padding-right: 0px ;
+}
+.colFollowpercent {
+    margin-top: 10px;
+    height: 41px;
+    font-size: 14px;
+    font-family:"helveticaNeueRegular";
+    color:#C9C2D8;
+    width: auto !important;
+}
+.colFollowpercent div{
+    padding-left:5px;
+    padding-top:10px;
+}
+.colFollowpercent-span-one{
+    padding-right:20px;
+}
+.colFollowpercent-image{
+    height: 20px;
+    width: 20px;
+}
+.footerLogo-main{
+    padding-right:20px !important;
+    width:auto !important;
+}
+.cgLogo{
+    height: 28px;
+    width: 122px;
+    display: block;
+}
+.col30percent div{
+    padding-left:5px;
+    padding-top:10px;
+}
+.col30percent-span-one{
+    padding-right:20px;
+    color:#C9C2D8;
+}
+.col30percent-span-two{
+    padding-right:170px;
+    color:#C9C2D8;
+}
+.colRights{
+    height:41px;
+    margin-left: 0px;
+    margin-top: 10px;
+    float:right;
+    padding-left: 76px;
+}
+.colRights-div-one{
+    color: #C9C2D8;
+    border-left: 1px solid white;
+    height: 41px;
+    font-family:"helveticaNeueRegular";
+    padding-left: 15px;
+    margin-right:15px;
+}
+.colRights-div-one div{
+    padding-top: 10px;
+}
+.footer-anchor-tag , .footer-anchor-tag:hover {
+    cursor:pointer;
+    text-decoration: none;
+    color:#C9C2D8;
+}
+
+.footer-xs-padding
+{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #61759B;
+
+}
+
+.img-footer-xs-sm
+{
+      margin: 0 auto;
+      padding-top: 10px;
+}
+
+.footer-xs-sm
+{
+  background: #00264A;
+  color: #C9C2D8;
+}
